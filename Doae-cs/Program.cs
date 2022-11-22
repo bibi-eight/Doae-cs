@@ -27,6 +27,7 @@ namespace Doae
 
             builder.Services.AddScoped<IInstitutionRepository, InstitutionRepository>();
             builder.Services.AddScoped<IDonationRepository, DonationRepository>();
+            builder.Services.AddScoped<ITargetRepository, TargetRepository>();
 
             var app = builder.Build();
 

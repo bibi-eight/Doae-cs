@@ -41,7 +41,7 @@ namespace Doae.Repositories
 
             if (targetById == null)
             {
-                throw new Exception($"Doação para o ID: {id} não foi encontrado no banco de dados");
+                return null;
             }
 
             targetById.CurrentyQuantity = target.CurrentyQuantity;
@@ -58,7 +58,7 @@ namespace Doae.Repositories
 
             if (targetById == null)
             {
-                throw new Exception($"Doação para o ID: {id} não foi encontrado no banco de dados");
+               return null;
             }
 
             targetById.Name = target.Name;
@@ -75,7 +75,7 @@ namespace Doae.Repositories
 
             if (targetById == null)
             {
-                throw new Exception($"Doação para o ID:{id} não foi encontrado no banco de dados");
+               return null;
             }
 
             _dbContext.Targets.Remove(targetById);

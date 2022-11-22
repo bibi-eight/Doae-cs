@@ -1,7 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Doae.Repositories.Interfaces;
-using Doae.database;
 using Doae.Models;
 
 namespace Doae.Controllers

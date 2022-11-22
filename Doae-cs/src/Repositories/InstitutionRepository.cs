@@ -36,7 +36,7 @@ namespace Doae.Repositories
 
            if(institutionForId == null)
            {
-            throw new Exception($"Instituição por id: {id} não foi encontrado pelo banco de dados");
+            return null;
            }
            institutionForId.Name = institution.Name;
            institutionForId.Description = institution.Description;

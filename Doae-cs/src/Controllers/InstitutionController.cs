@@ -1,7 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Doae.Repositories.Interfaces;
-using Doae.database;
 using Doae.Models;
 
 namespace Doae.Controllers
@@ -46,6 +44,10 @@ namespace Doae.Controllers
         {
             institutionModel.Id = id;
             InstitutionModel? institution = await _institutionRepository.Update(institutionModel, id);
+            if(institution==null)
+            {
+                return NotFound($"Instituição por id: {id} não foi encontrado pelo banco de dados");
+            }
             return Ok(institution);
         }
 
