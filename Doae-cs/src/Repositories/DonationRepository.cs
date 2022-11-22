@@ -24,12 +24,12 @@ namespace Doae.Repositories
 
         public async Task<List<DonationModel>> FindDonationForIdInstitution(int institutionId)
         {
-            return await _dbContext.Donations.Where(x => x.InstitutionId == institutionId).ToListAsync();//perguntar pro zeze 
+            return await _dbContext.Donations.Where(x => x.InstitutionId == institutionId).ToListAsync();
         }
 
         public async Task<List<DonationModel>> FindDonationForIdTarget(int targetId)
         {
-            return await _dbContext.Donations.Where(x => x.TargetId == targetId).ToListAsync();//perguntar pro zeze 
+            return await _dbContext.Donations.Where(x => x.TargetId == targetId).ToListAsync(); 
         }
         public async Task<DonationModel> CreateDonation(DonationModel donation)
         {
