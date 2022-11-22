@@ -26,6 +26,7 @@ namespace Doae
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IInstitutionRepository, InstitutionRepository>();
+            builder.Services.AddScoped<IDonationRepository, DonationRepository>();
 
             var app = builder.Build();
 
