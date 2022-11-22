@@ -14,6 +14,9 @@ namespace Doae.database
         public DbSet<InstitutionModel> Institutions {get; set; } = default!;
         public DbSet<DonationModel> Donations {get; set; } = default!;
         public DbSet<TargetModel> Targets {get; set; } = default!;
+        public DbSet<ProductModel> Products {get; set; } = default!;
+        public DbSet<ProductTargetModel> Relations {get; set; } = default!;
+        public DbSet<PublicationModel> Publications {get; set; } = default!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
