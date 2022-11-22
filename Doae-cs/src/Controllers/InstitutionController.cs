@@ -40,7 +40,7 @@ namespace Doae.Controllers
             return Ok(institution);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("atualizar/{id}")]
 
         public async Task<ActionResult<InstitutionModel?>> Update([FromBody] InstitutionModel institutionModel, int id)
         {
