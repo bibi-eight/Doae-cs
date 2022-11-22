@@ -12,7 +12,7 @@ namespace Doae.database
         }
 
         public DbSet<InstitutionModel> Institutions {get; set; } = default!;
-        
+        public DbSet<DonationModel> Donations {get; set; } = default!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
