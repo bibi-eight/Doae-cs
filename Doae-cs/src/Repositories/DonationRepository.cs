@@ -17,17 +17,17 @@ namespace Doae.Repositories
             return await _dbContext.Donations.ToListAsync();
         }
 
-        public async Task<DonationModel?> FindDonationForId(int id)
+        public async Task<DonationModel?> FindDonationById(int id)
         {
             return await _dbContext.Donations.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<List<DonationModel>> FindDonationForIdInstitution(int institutionId)
+        public async Task<List<DonationModel>> FindDonationByIdInstitution(int institutionId)
         {
             return await _dbContext.Donations.Where(x => x.InstitutionId == institutionId).ToListAsync();
         }
 
-        public async Task<List<DonationModel>> FindDonationForIdTarget(int targetId)
+        public async Task<List<DonationModel>> FindDonationByIdTarget(int targetId)
         {
             return await _dbContext.Donations.Where(x => x.TargetId == targetId).ToListAsync(); 
         }
@@ -40,31 +40,31 @@ namespace Doae.Repositories
         }
         public async Task<DonationModel?> UpdateStatusDonation(DonationModel donation, int id)
         {
-            DonationModel? donationForId = await FindDonationForId(id);
+            DonationModel? donationById = await FindDonationById(id);
 
-            if (donationForId == null)
+            if (donationById == null)
             {
                 throw new Exception($"Doação para o ID: {id} não foi encontrado no banco de dados");
             }
 
-            donationForId.Status = donation.Status;
+            donationById.Status = donation.Status;
 
-            _dbContext.Donations.Update(donationForId);
+            _dbContext.Donations.Update(donationById);
             await _dbContext.SaveChangesAsync();
 
-            return donationForId;
+            return donationById;
         }
 
         public async Task<bool> DeleteDonation(int id)
         {
-            DonationModel? donationForId = await FindDonationForId(id);
+            DonationModel? donationById = await FindDonationById(id);
 
-            if (donationForId == null)
+            if (donationById == null)
             {
                 throw new Exception($"Doação para o ID:{id} não foi encontrado no banco de dados");
             }
 
-            _dbContext.Donations.Remove(donationForId);
+            _dbContext.Donations.Remove(donationById);
             await _dbContext.SaveChangesAsync();
 
             return true;

@@ -26,23 +26,23 @@ namespace Doae.Controllers
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<DonationModel?>>FindDonationForId(int id)
+        public async Task<ActionResult<DonationModel?>>FindDonationById(int id)
         {
-            DonationModel? donation = await _donationRepository.FindDonationForId(id);
+            DonationModel? donation = await _donationRepository.FindDonationById(id);
             return Ok(donation);
         }
 
         [HttpGet("{institutionId}")]
-        public async Task<ActionResult<List<DonationModel>>>FindDonationForIdInstitution(int institutionId)
+        public async Task<ActionResult<List<DonationModel>>>FindDonationByIdInstitution(int institutionId)
         {
-            List<DonationModel> donations = await _donationRepository.FindDonationForIdInstitution(institutionId);
+            List<DonationModel> donations = await _donationRepository.FindDonationByIdInstitution(institutionId);
             return Ok(donations);
         }
 
         [HttpGet("{targetId}")]
-        public async Task<ActionResult<List<DonationModel>>>FindDonationForIdTarget(int targetId)
+        public async Task<ActionResult<List<DonationModel>>>FindDonationByIdTarget(int targetId)
         {
-            List<DonationModel> donations = await _donationRepository.FindDonationForIdTarget(targetId);
+            List<DonationModel> donations = await _donationRepository.FindDonationByIdTarget(targetId);
             return Ok(donations);
 
         }

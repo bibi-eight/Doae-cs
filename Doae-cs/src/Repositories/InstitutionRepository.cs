@@ -14,72 +14,72 @@ namespace Doae.Repositories
         {
             _dbContext = applicationDBContext;
         }
-         public async Task<List<InstitutionModel>> FindAll()
+         public async Task<List<InstitutionModel>> FindAllInstitutions()
         {
            return await _dbContext.Institutions.ToListAsync();
         }
 
-        public async Task<InstitutionModel?> FindForId(int id)
+        public async Task<InstitutionModel?> FindInstitutionById(int id)
         {
            return await _dbContext.Institutions.FirstOrDefaultAsync(x => x.Id ==id);
         }
-        public async Task<InstitutionModel> Add(InstitutionModel institution)
+        public async Task<InstitutionModel> CreateInstitution(InstitutionModel institution)
         {
             await _dbContext.Institutions.AddAsync(institution);
             await _dbContext.SaveChangesAsync();
 
             return institution;
         }
-        public async Task<InstitutionModel?> Update(InstitutionModel institution, int id)
+        public async Task<InstitutionModel?> UpdateInstitution(InstitutionModel institution, int id)
         {
-           InstitutionModel? institutionForId = await FindForId(id);
+           InstitutionModel? institutionById = await FindInstitutionById(id);
 
-           if(institutionForId == null)
+           if(institutionById == null)
            {
             return null;
            }
-           institutionForId.Name = institution.Name;
-           institutionForId.Description = institution.Description;
-           institutionForId.Phone = institution.Phone;
-           institutionForId.Cep = institution.Cep;
-           institutionForId.Site = institution.Site;
-           institutionForId.Pix = institution.Pix;
-           institutionForId.Agency = institution.Agency;
-           institutionForId.Count = institution.Count;
+           institutionById.Name = institution.Name;
+           institutionById.Description = institution.Description;
+           institutionById.Phone = institution.Phone;
+           institutionById.Cep = institution.Cep;
+           institutionById.Site = institution.Site;
+           institutionById.Pix = institution.Pix;
+           institutionById.Agency = institution.Agency;
+           institutionById.Count = institution.Count;
 
-           _dbContext.Institutions.Update(institutionForId);
+           _dbContext.Institutions.Update(institutionById);
            await _dbContext.SaveChangesAsync();
 
-           return institutionForId;
+           return institutionById;
 
         }
-        public async Task<InstitutionModel?> UpdateCredentials(InstitutionModel institution, int id)
+        public async Task<InstitutionModel?> UpdateCredentialsInstitution(InstitutionModel institution, int id)
         {
-           InstitutionModel? institutionForId = await FindForId(id);
+           InstitutionModel? institutionById = await FindInstitutionById(id);
 
-           if(institutionForId == null)
+           if(institutionById == null)
            {
             return null;
            }
 
-           institutionForId.Email = institution.Email;
-           institutionForId.Password = institution.Password;
+           institutionById.Email = institution.Email;
+           institutionById.Password = institution.Password;
 
-           _dbContext.Institutions.Update(institutionForId);
+           _dbContext.Institutions.Update(institutionById);
            await _dbContext.SaveChangesAsync();
 
-           return institutionForId;
+           return institutionById;
 
         }
-         public async Task<bool?> Delete(int id)
+         public async Task<bool?> DeleteInstitution(int id)
         {
-            InstitutionModel? institutionForId = await FindForId(id);
+            InstitutionModel? institutionById = await FindInstitutionById(id);
 
-           if(institutionForId == null)
+           if(institutionById == null)
            {
             return null;
            }
-           _dbContext.Institutions.Remove(institutionForId);
+           _dbContext.Institutions.Remove(institutionById);
            await _dbContext.SaveChangesAsync();
 
            return true;

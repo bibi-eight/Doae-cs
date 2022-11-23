@@ -36,6 +36,23 @@ namespace Doae.Repositories
             return publication;
         }
 
+        public async Task<PublicationModel?> UpdatePublication(PublicationModel publication, int id)
+        {
+            PublicationModel? publicationById = await FindPublicationById(id);
+
+            if (publicationById == null)
+            {
+                throw new Exception($"Doação para o ID: {id} não foi encontrado no banco de dados");
+            }
+
+            publicationById.Description = publication.Description;
+
+            _dbContext.Publications.Update(publicationById);
+            await _dbContext.SaveChangesAsync();
+
+            return publicationById;
+        }
+
         public async Task<bool?> DeletePublication(int id)
         {
             PublicationModel? publicationById = await FindPublicationById(id);
