@@ -1,6 +1,6 @@
 namespace Doae_api_cs
 {
-    public class ProductTarget
+    public class Relation
     {
         public int Id { get; set; }
         public int TargetId { get; set; }
