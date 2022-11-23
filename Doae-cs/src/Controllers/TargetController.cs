@@ -45,7 +45,7 @@ namespace Doae.Controllers
             return Ok(target);
         }
 
-        [HttpPut("atualizar/{id}")]
+        [HttpPatch("atualizar/{id}")]
 
         public async Task<ActionResult<TargetModel?>> UpdateCurrentQuantity([FromBody] TargetModel targetModel, int id)
         {

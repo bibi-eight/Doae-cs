@@ -51,7 +51,7 @@ namespace Doae.Controllers
             return Ok(institution);
         }
 
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public async Task<ActionResult<InstitutionModel?>> UpdateCredentialsInstitution([FromBody] InstitutionModel institutionModel, int id)
         {
             institutionModel.Id = id;

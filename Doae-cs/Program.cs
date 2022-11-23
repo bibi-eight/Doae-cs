@@ -30,6 +30,7 @@ namespace Doae
             builder.Services.AddScoped<ITargetRepository, TargetRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IRelationRepository, RelationRepository>();
+            builder.Services.AddScoped<IPublicationRepository, PublicationRepository>();
 
             var app = builder.Build();
 
