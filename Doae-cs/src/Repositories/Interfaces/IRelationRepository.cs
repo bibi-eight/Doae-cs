@@ -8,7 +8,6 @@ namespace Doae.Repositories.Interfaces
         Task<List<RelationModel>>FindRelationByIdTarget(int targetId);
         Task<List<RelationModel>>FindRelationByIdProduct(int productId);
         Task<RelationModel> CreateRelation(RelationModel relation);
-       
         Task<bool?> DeleteRelation(int id);
     }
 }
