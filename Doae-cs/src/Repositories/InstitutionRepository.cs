@@ -63,7 +63,7 @@ namespace Doae.Repositories
            }
 
            institutionById.Email = institution.Email;
-           institutionById.Password = institution.Password;
+           //institutionById.Password = institution.Password;
 
            _dbContext.Institutions.Update(institutionById);
            await _dbContext.SaveChangesAsync();

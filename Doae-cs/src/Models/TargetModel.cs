@@ -7,10 +7,8 @@ namespace Doae.Models
         public string? Name { get; set; }
         public double TargetValue { get; set; }
         public double CurrentyQuantity { get; set; }
-        public int TargetId { get; set; }
         public string? Description { get; set; }
         public DateTime DayLimit { get; set; }
-        public Boolean Suspend { get; set; }
         
     }
 }

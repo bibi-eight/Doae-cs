@@ -9,7 +9,6 @@ namespace Doae.Models
         public int TargetId { get; set; }
         public int ProductId { get; set; }
         public Boolean Status { get; set; }
-        public Boolean Suspend { get; set; }
         
     }
 }

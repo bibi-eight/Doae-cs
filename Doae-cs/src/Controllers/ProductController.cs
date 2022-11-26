@@ -23,10 +23,10 @@ namespace Doae.Controllers
             ProductModel? product = await _productRepository.FindProductById(id);
             return Ok(product);
         }
-        [HttpGet("{institutionId}")]
-        public async Task<ActionResult<List<ProductModel>>> FindProductsByIdInstitution(int institutionId)
+        [HttpGet]
+        public async Task<ActionResult<List<ProductModel>>> FindAllProducts()
         {
-            List<ProductModel> products = await _productRepository.FindProductsByIdInstitution(institutionId);
+            List<ProductModel> products = await _productRepository.FindAllProducts();
             return Ok(products);
         }
 

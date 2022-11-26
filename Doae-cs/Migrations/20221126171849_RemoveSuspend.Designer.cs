@@ -3,6 +3,7 @@ using System;
 using Doae.database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Doae_cs.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221126171849_RemoveSuspend")]
+    partial class RemoveSuspend
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,6 +37,9 @@ namespace Doae_cs.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("Suspend")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("TargetId")
@@ -163,6 +168,9 @@ namespace Doae_cs.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("TargetId")
+                        .HasColumnType("int");
 
                     b.Property<double>("TargetValue")
                         .HasColumnType("double");

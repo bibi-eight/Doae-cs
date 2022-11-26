@@ -18,9 +18,9 @@ namespace Doae.Repositories
             return await _dbContext.Products.FirstOrDefaultAsync(x => x.Id ==id);
         }
 
-        public async Task<List<ProductModel>> FindProductsByIdInstitution(int institutionId)
+        public async Task<List<ProductModel>> FindAllProducts()
         {
-            return await _dbContext.Products.Where(x => x.InstitutionId == institutionId).ToListAsync();
+            return await _dbContext.Products.ToListAsync();
         }
 
         public async Task<ProductModel> CreateProduct(ProductModel product)

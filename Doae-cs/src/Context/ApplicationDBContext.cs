@@ -22,9 +22,5 @@ namespace Doae.database
             base.OnModelCreating(modelBuilder);
         }
 
-        internal Task SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
